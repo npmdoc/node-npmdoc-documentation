@@ -1,0 +1,408 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://github.com/documentationjs/documentation#readme"
+
+    >documentation (v3.0.4)</a>
+</h1>
+<h4>a documentation generator</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.documentation">module documentation</a><ol>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">documentation.</span>formats</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">documentation.</span>lint</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">documentation.</span>module_filters</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.documentation.formats">module documentation.formats</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.documentation.formats.html">
+            function <span class="apidocSignatureSpan">documentation.formats.</span>html
+            <span class="apidocSignatureSpan">(comments, options, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.documentation.formats.json">
+            function <span class="apidocSignatureSpan">documentation.formats.</span>json
+            <span class="apidocSignatureSpan">(comments, opts, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.documentation.formats.md">
+            function <span class="apidocSignatureSpan">documentation.formats.</span>md
+            <span class="apidocSignatureSpan">(comments, opts, callback)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.documentation.lint">module documentation.lint</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.documentation.lint.lint">
+            function <span class="apidocSignatureSpan">documentation.</span>lint
+            <span class="apidocSignatureSpan">(comment)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.documentation.lint.format">
+            function <span class="apidocSignatureSpan">documentation.lint.</span>format
+            <span class="apidocSignatureSpan">(comments)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.documentation.module_filters">module documentation.module_filters</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.documentation.module_filters.externals">
+            function <span class="apidocSignatureSpan">documentation.module_filters.</span>externals
+            <span class="apidocSignatureSpan">(indexes, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.documentation.module_filters.internalOnly">
+            function <span class="apidocSignatureSpan">documentation.module_filters.</span>internalOnly
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.documentation" id="apidoc.module.documentation">module documentation</a></h1>
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.documentation.formats" id="apidoc.module.documentation.formats">module documentation.formats</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.documentation.formats.html" id="apidoc.element.documentation.formats.html">
+        function <span class="apidocSignatureSpan">documentation.formats.</span>html
+        <span class="apidocSignatureSpan">(comments, options, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function makeHTML(comments, options, callback) {
+  comments = walk(comments, highlight);
+
+  options = options || {};
+
+  var themeModule = resolveTheme(options.theme);
+  var pageTemplate = getTemplate(Handlebars, themeModule, &#x27;index.hbs&#x27;);
+
+  Handlebars.registerPartial(&#x27;section&#x27;,
+    getTemplate(Handlebars, themeModule, &#x27;section.hbs&#x27;));
+
+  var paths = comments.map(function (comment) {
+    return comment.path.join(&#x27;.&#x27;);
+  }).filter(function (path) {
+    return path;
+  });
+
+  helpers(Handlebars, paths);
+
+  // push assets into the pipeline as well.
+  vfs.src([themeModule + &#x27;/assets/**&#x27;], { base: themeModule })
+    .pipe(concat(function (files) {
+      callback(null, files.concat(new File({
+        path: &#x27;index.html&#x27;,
+        contents: new Buffer(pageTemplate({
+          docs: comments,
+          options: options
+        }), &#x27;utf8&#x27;)
+      })));
+    }));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.documentation.formats.json" id="apidoc.element.documentation.formats.json">
+        function <span class="apidocSignatureSpan">documentation.formats.</span>json
+        <span class="apidocSignatureSpan">(comments, opts, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">json = function (comments, opts, callback) {
+
+  walk(comments, function (comment) {
+    delete comment.errors;
+  });
+
+  return callback(null, JSON.stringify(comments, null, 2));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.documentation.formats.md" id="apidoc.element.documentation.formats.md">
+        function <span class="apidocSignatureSpan">documentation.formats.</span>md
+        <span class="apidocSignatureSpan">(comments, opts, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">md = function (comments, opts, callback) {
+  var processor = mdast().use(toc);
+  markdownAST(comments, opts, function (err, ast) {
+    var processedAST = processor.run(ast);
+    return callback(null, processor.stringify(processedAST));
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.documentation.lint" id="apidoc.module.documentation.lint">module documentation.lint</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.documentation.lint.lint" id="apidoc.element.documentation.lint.lint">
+        function <span class="apidocSignatureSpan">documentation.</span>lint
+        <span class="apidocSignatureSpan">(comment)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function lint(comment) {
+  comment.tags.forEach(function (tag) {
+    function nameInvariant(name) {
+      if (CANONICAL[name]) {
+        comment.errors.push({
+          message: &#x27;type &#x27; + name + &#x27; found, &#x27; + CANONICAL[name] + &#x27; is standard&#x27;,
+          commentLineNumber: tag.lineNumber
+        });
+      }
+    }
+
+    function checkCanonical(type) {
+      if (type.type === &#x27;NameExpression&#x27;) {
+        nameInvariant(type.name);
+      } else if (type.type === &#x27;UnionType&#x27;) {
+        type.elements.forEach(checkCanonical);
+      } else if (type.type === &#x27;OptionalType&#x27;) {
+        checkCanonical(type.expression);
+      } else if (type.type === &#x27;TypeApplication&#x27;) {
+        checkCanonical(type.expression);
+        type.applications.map(checkCanonical);
+      }
+    }
+
+    if (tag.title === &#x27;param&#x27; &#x26;&#x26; tag.type) {
+      checkCanonical(tag.type);
+    }
+  });
+  return comment;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.documentation.lint.format" id="apidoc.element.documentation.lint.format">
+        function <span class="apidocSignatureSpan">documentation.lint.</span>format
+        <span class="apidocSignatureSpan">(comments)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function format(comments) {
+  var vFiles = {};
+  walk(comments, function (comment) {
+    comment.errors.forEach(function (error) {
+      var p = comment.context.file;
+      var parts = parseFilepath(p);
+      vFiles[p] = vFiles[p] || new VFile({
+        directory: parts.dirname,
+        filename: parts.basename
+      });
+      vFiles[p].warn(error.message, {
+        line: comment.loc.start.line + error.commentLineNumber || 0
+      });
+    });
+  });
+  return reporter(Object.keys(vFiles).map(function (p) {
+    return vfileSort(vFiles[p]);
+  }));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.documentation.module_filters" id="apidoc.module.documentation.module_filters">module documentation.module_filters</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.documentation.module_filters.externals" id="apidoc.element.documentation.module_filters.externals">
+        function <span class="apidocSignatureSpan">documentation.module_filters.</span>externals
+        <span class="apidocSignatureSpan">(indexes, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function externalModuleFilter(indexes, options) {
+  var externalFilters = false;
+  if (options.external) {
+    var test = micromatch.matcher(options.external);
+    externalFilters = indexes.map(function (index) {
+      // grab the path of the top-level node_modules directory.
+      var topNodeModules = path.join(path.dirname(index), &#x27;node_modules&#x27;);
+      return function matchGlob(file, pkg) {
+        // if a module is not found, don&#x27;t include it.
+        if (!file || !pkg) {
+          return false;
+        }
+        // if package.json specifies a &#x27;main&#x27; script, strip that path off
+        // the file to get the module&#x27;s directory.
+        // otherwise, just use the dirname of the file.
+        if (pkg.main) {
+          file = file.slice(0, -path.normalize(pkg.main).length);
+        } else {
+          file = path.dirname(file);
+        }
+        // test the path relative to the top node_modules dir.
+        var p = path.relative(topNodeModules, file);
+        return test(p);
+      };
+    });
+  }
+
+  return function (id, file, pkg) {
+    var internal = internalModuleRegexp.test(id);
+    return internal || (externalFilters &#x26;&#x26;
+      externalFilters
+      .some(function (f) {
+        return f(file, pkg);
+      }));
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.documentation.module_filters.internalOnly" id="apidoc.element.documentation.module_filters.internalOnly">
+        function <span class="apidocSignatureSpan">documentation.module_filters.</span>internalOnly
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">internalOnly = function () { [native code] }</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
