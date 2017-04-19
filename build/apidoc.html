@@ -63,6 +63,15 @@
 
         <li>
 
+            <a class="apidocElementLiA" href="#apidoc.element.documentation.documentation">
+            function <span class="apidocSignatureSpan"></span>documentation
+            <span class="apidocSignatureSpan">(indexes, options, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">documentation.</span>formats</span>
 
         </li>
@@ -160,6 +169,60 @@
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.documentation" id="apidoc.module.documentation">module documentation</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.documentation.documentation" id="apidoc.element.documentation.documentation">
+        function <span class="apidocSignatureSpan"></span>documentation
+        <span class="apidocSignatureSpan">(indexes, options, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">documentation = function (indexes, options, callback) {
+  options = options || {};
+
+  if (typeof indexes === &#x27;string&#x27;) {
+    indexes = [indexes];
+  }
+
+  var inputFn = (options.polyglot || options.shallow) ? shallow : dependency;
+  var parseFn = (options.polyglot) ? polyglot : parseJavaScript;
+
+  return inputFn(indexes, options, function (error, inputs) {
+    if (error) {
+      return callback(error);
+    }
+    try {
+      callback(null,
+        filterAccess(
+          (options.private || options.lint) ? [] : undefined,
+          hierarchy(
+            inputs
+              .filter(filterJS)
+              .reduce(function (memo, file) {
+                return memo.concat(parseFn(file));
+              }, [])
+              .map(pipeline(
+                lint.lint,
+                inferName(),
+                inferKind(),
+                inferParams(),
+                inferProperties(),
+                inferReturn(),
+                inferMembership(),
+                nest,
+                options.github ? github : noop
+              ))
+              .filter(Boolean)
+              .sort(sort.bind(undefined, options.order)))));
+    } catch (e) {
+      callback(e);
+    }
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
 
 
 
