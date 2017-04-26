@@ -1,6 +1,6 @@
 # npmdoc-documentation
 
-#### api documentation for  [documentation (v3.0.4)](https://github.com/documentationjs/documentation#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-documentation.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-documentation) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-documentation.svg)](https://travis-ci.org/npmdoc/node-npmdoc-documentation)
+#### basic api documentation for  [documentation (v3.0.4)](https://github.com/documentationjs/documentation#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-documentation.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-documentation) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-documentation.svg)](https://travis-ci.org/npmdoc/node-npmdoc-documentation)
 
 #### a documentation generator
 
