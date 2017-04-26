@@ -4,7 +4,7 @@
 <tspan x="10" y="26">39 megabytes installed</tspan>
 <tspan x="10" y="42"></tspan>
 <tspan x="10" y="58">node_modules</tspan>
-<tspan x="10" y="74">└─┬ documentation@4.0.0-beta.19 </tspan>
+<tspan x="10" y="74">└─┬ documentation@4.0.0-rc.0 </tspan>
 <tspan x="10" y="90">  ├── ansi-html@0.0.7 </tspan>
 <tspan x="10" y="106">  ├─┬ babel-core@6.24.1 </tspan>
 <tspan x="10" y="122">  │ ├─┬ babel-code-frame@6.22.0 </tspan>
@@ -21,8 +21,8 @@
 <tspan x="10" y="298">  │ │ └── regenerator-runtime@0.10.3 </tspan>
 <tspan x="10" y="314">  │ ├── babel-template@6.24.1 </tspan>
 <tspan x="10" y="330">  │ ├── convert-source-map@1.5.0 </tspan>
-<tspan x="10" y="346">  │ ├─┬ debug@2.6.3 </tspan>
-<tspan x="10" y="362">  │ │ └── ms@0.7.2 </tspan>
+<tspan x="10" y="346">  │ ├─┬ debug@2.6.4 </tspan>
+<tspan x="10" y="362">  │ │ └── ms@0.7.3 </tspan>
 <tspan x="10" y="378">  │ ├── json5@0.5.1 </tspan>
 <tspan x="10" y="394">  │ ├─┬ minimatch@3.0.3 </tspan>
 <tspan x="10" y="410">  │ │ └─┬ brace-expansion@1.1.7 </tspan>
@@ -130,7 +130,7 @@
 <tspan x="10" y="2042">  │ └── to-fast-properties@1.0.2 </tspan>
 <tspan x="10" y="2058">  ├─┬ babelify@7.3.0 </tspan>
 <tspan x="10" y="2074">  │ └── object-assign@4.1.1 </tspan>
-<tspan x="10" y="2090">  ├── babylon@6.16.1 </tspan>
+<tspan x="10" y="2090">  ├── babylon@6.17.0 </tspan>
 <tspan x="10" y="2106">  ├─┬ chalk@1.1.3 </tspan>
 <tspan x="10" y="2122">  │ ├── ansi-styles@2.2.1 </tspan>
 <tspan x="10" y="2138">  │ ├── escape-string-regexp@1.0.5 </tspan>
@@ -159,7 +159,7 @@
 <tspan x="10" y="2506">  │ └── typedarray@0.0.6 </tspan>
 <tspan x="10" y="2522">  ├─┬ disparity@2.0.0 </tspan>
 <tspan x="10" y="2538">  │ └── diff@1.4.0 </tspan>
-<tspan x="10" y="2554">  ├─┬ doctrine@2.0.0 </tspan>
+<tspan x="10" y="2554">  ├─┬ doctrine-temporary-fork@2.0.0-alpha-allowarrayindex </tspan>
 <tspan x="10" y="2570">  │ └── isarray@1.0.0 </tspan>
 <tspan x="10" y="2586">  ├── get-comments@1.0.1 </tspan>
 <tspan x="10" y="2602">  ├─┬ git-url-parse@6.2.2 </tspan>
@@ -175,7 +175,7 @@
 <tspan x="10" y="2762">  │ │ └── wrappy@1.0.2 </tspan>
 <tspan x="10" y="2778">  │ └── once@1.4.0 </tspan>
 <tspan x="10" y="2794">  ├── globals-docs@2.3.0 </tspan>
-<tspan x="10" y="2810">  ├── highlight.js@9.10.0 </tspan>
+<tspan x="10" y="2810">  ├── highlight.js@9.11.0 </tspan>
 <tspan x="10" y="2826">  ├─┬ js-yaml@3.8.3 </tspan>
 <tspan x="10" y="2842">  │ ├─┬ argparse@1.0.9 </tspan>
 <tspan x="10" y="2858">  │ │ └── sprintf-js@1.0.3 </tspan>
@@ -200,7 +200,7 @@
 <tspan x="10" y="3162">  │ ├── extglob@0.3.2 </tspan>
 <tspan x="10" y="3178">  │ ├── filename-regex@2.0.0 </tspan>
 <tspan x="10" y="3194">  │ ├── is-extglob@1.0.0 </tspan>
-<tspan x="10" y="3210">  │ ├── kind-of@3.1.0 </tspan>
+<tspan x="10" y="3210">  │ ├── kind-of@3.2.0 </tspan>
 <tspan x="10" y="3226">  │ ├── normalize-path@2.1.1 </tspan>
 <tspan x="10" y="3242">  │ ├─┬ object.omit@2.0.1 </tspan>
 <tspan x="10" y="3258">  │ │ ├─┬ for-own@0.1.5 </tspan>
@@ -228,7 +228,7 @@
 <tspan x="10" y="3610">  │ │ └── through@2.3.8 </tspan>
 <tspan x="10" y="3626">  │ ├─┬ parents@1.0.1 </tspan>
 <tspan x="10" y="3642">  │ │ └── path-platform@0.11.15 </tspan>
-<tspan x="10" y="3658">  │ ├─┬ resolve@1.3.2 </tspan>
+<tspan x="10" y="3658">  │ ├─┬ resolve@1.3.3 </tspan>
 <tspan x="10" y="3674">  │ │ └── path-parse@1.0.5 </tspan>
 <tspan x="10" y="3690">  │ ├── stream-combiner2@1.1.1 </tspan>
 <tspan x="10" y="3706">  │ ├─┬ subarg@1.0.0 </tspan>
@@ -257,7 +257,7 @@
 <tspan x="10" y="4074">  │   │ │ └─┬ error-ex@1.3.1 </tspan>
 <tspan x="10" y="4090">  │   │ │   └── is-arrayish@0.2.1 </tspan>
 <tspan x="10" y="4106">  │   │ └── strip-bom@3.0.0 </tspan>
-<tspan x="10" y="4122">  │   ├─┬ normalize-package-data@2.3.6 </tspan>
+<tspan x="10" y="4122">  │   ├─┬ normalize-package-data@2.3.8 </tspan>
 <tspan x="10" y="4138">  │   │ ├── hosted-git-info@2.4.2 </tspan>
 <tspan x="10" y="4154">  │   │ ├─┬ is-builtin-module@1.0.0 </tspan>
 <tspan x="10" y="4170">  │   │ │ └── builtin-modules@1.1.1 </tspan>

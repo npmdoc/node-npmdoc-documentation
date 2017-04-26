@@ -384,7 +384,23 @@
     return vfileSort(vFiles[p]);
   }));
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+documentation(parsedArgs.inputs, parsedArgs.options, function (err, comments) {
+if (err) {
+  throw err;
+}
+
+if (parsedArgs.options.lint) {
+  var lintOutput = lint.<span class="apidocCodeKeywordSpan">format</span>(comments);
+  if (lintOutput) {
+    console.log(lintOutput);
+    process.exit(1);
+  } else {
+    process.exit(0);
+  }
+}
+...</pre></li>
     </ul>
 
 
@@ -437,7 +453,23 @@
       }));
   };
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  filter: function (id) {
+    return !!options.external || moduleFilters.internalOnly(id);
+  },
+  transform: [babelify.configure({
+    sourceMap: false,
+    stage: 0
+  })],
+  postFilter: moduleFilters.<span class="apidocCodeKeywordSpan">externals</span>(indexes, options)
+});
+indexes.forEach(function (index) {
+  md.write(path.resolve(index));
+});
+md.end();
+md.once('error', function (error) {
+  return callback(error);
+...</pre></li>
     </ul>
 
 
@@ -450,7 +482,23 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">internalOnly = function () { [native code] }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ * @param {Object} options optional options passed
+ * @param {Function} callback called with (err, inputs)
+ * @returns {undefined} calls callback
+ */
+function dependencyStream(indexes, options, callback) {
+var md = mdeps({
+  filter: function (id) {
+    return !!options.external || moduleFilters.<span class="apidocCodeKeywordSpan">internalOnly</span>(id);
+  },
+  transform: [babelify.configure({
+    sourceMap: false,
+    stage: 0
+  })],
+  postFilter: moduleFilters.externals(indexes, options)
+});
+...</pre></li>
     </ul>
 
 
